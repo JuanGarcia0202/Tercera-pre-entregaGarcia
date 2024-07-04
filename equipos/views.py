@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect
-# Modelos:
-from equipos.models import Equipo, Usuario, Observacion
-# Formularios:
+#Modelos:
+from equipos.models import Equipo, Observacion, Usuario
+
+
+#Formularios:
 from equipos.forms import *
 
-# Create your views here.
 
 def index(request):
     return render(request, "equipos/index.html") 
@@ -17,17 +18,17 @@ def equipos(request):
         search_term = search_form.cleaned_data['search_term']
 
     if request.method == "POST":
-        EquipoForm = EquipoForm(request.POST)
-        if EquipoForm.is_valid():
-            EquipoForm.save()
-            return redirect('equipo')
+        equiposForm = EquipoForm(request.POST)
+        if equiposForm.is_valid():
+            equiposForm.save()
+            return redirect('equipos')
     else:
-        EquipoForm = EquipoForm()
+        equiposForm = EquipoForm()
 
     equipos = Equipo.objects.filter(nombre__icontains=search_term) if search_term else Equipo.objects.all()
 
     contexto = {
-        "equipoForm": EquipoForm,
+        "equiposForm": equiposForm,
         "equipos": equipos,
         "search_form": search_form,
     }
@@ -41,17 +42,17 @@ def usuarios(request):
         search_term = search_form.cleaned_data['search_term']
 
     if request.method == "POST":
-        UsuarioForm = UsuarioForm(request.POST)
-        if UsuarioForm.is_valid():
-            UsuarioForm.save()
-            return redirect('usuario')
+        usuariosForm = UsuarioForm(request.POST)
+        if usuariosForm.is_valid():
+            usuariosForm.save()
+            return redirect('usuarios')
     else:
-        UsuarioForm = UsuarioForm()
+        usuariosForm = UsuarioForm()
 
     usuarios = Usuario.objects.filter(nombre__icontains=search_term) if search_term else Usuario.objects.all()
 
     contexto = {
-        "UsuarioForm": UsuarioForm,
+        "usuarioForm": usuariosForm,
         "usuarios": usuarios,
         "search_form": search_form,
     }
@@ -65,17 +66,17 @@ def observaciones(request):
         search_term = search_form.cleaned_data['search_term']
 
     if request.method == "POST":
-        ObservacionForm = ObservacionForm(request.POST)
-        if ObservacionForm.is_valid():
-            ObservacionForm.save()
-            return redirect('observacion')
+        observacionesForm = ObservacionForm(request.POST)
+        if observacionesForm.is_valid():
+            observacionesForm.save()
+            return redirect('observaciones')
     else:
-        ObservacionForm = ObservacionForm()
+        observacionesForm = ObservacionForm()
 
     observaciones = Observacion.objects.filter(nombre__icontains=search_term) if search_term else Observacion.objects.all()
 
     contexto = {
-        "ObservacionForm": ObservacionForm,
+        "observacionesForm": observacionesForm,
         "observaciones": observaciones,
         "search_form": search_form,
     }
