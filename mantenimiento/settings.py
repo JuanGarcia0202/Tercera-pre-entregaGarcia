@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-jw^$9sq&697wm$#k56hlx$vmrwu3^2^h3c3t!k*ij+xuo+@p()'
+SECRET_KEY = 'django-insecure-vgp%_z&&)d!14f0w3&@8)2sy(kvco3d$$)!cw8$@$(m&z(fq1w'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'mantenimiento.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'equiposdb',
+        'NAME': BASE_DIR / 'mttodb',
     }
 }
 
@@ -124,3 +124,4 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
