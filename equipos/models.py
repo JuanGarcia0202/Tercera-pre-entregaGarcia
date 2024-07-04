@@ -7,9 +7,10 @@ class Usuario(models.Model):
     
 class Equipo(models.Model):
     marca = models.CharField(max_length=50)
-    modelo = models.CharField(max_length=50)
-    serie = models.CharField(max_length=10)
+    modelo = models.CharField(max_length=10)
+    serie = models.CharField(max_length=50)
     placa = models.CharField(max_length=50)
+
 
 class Observacion(models.Model):
     observacion = models.CharField(max_length=50)
